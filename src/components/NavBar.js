@@ -1,6 +1,7 @@
 import React from 'react'
 import triangulo from "../assets/triangulo.png"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CartWidget from './CartWidget';
 import "./NavBar.css"
 
 function NavBar() {
@@ -12,7 +13,7 @@ function NavBar() {
       <a href=''>Categoria 2</a>
       <a href=''>Categoria 3</a>
       </nav>
-      <ShoppingCartIcon color='primary'/>
+      <CartWidget/>
     </header>
   )
 }
