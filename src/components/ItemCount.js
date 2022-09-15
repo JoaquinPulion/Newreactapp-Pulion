@@ -17,8 +17,8 @@ function ItemCount(props) {
     }
 
     const Agregaralcarrito = () => {
-        setCount (1)
         props.Agregacarrito(Count)
+        setCount(Count)
     }
     
   return (

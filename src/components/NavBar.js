@@ -9,9 +9,9 @@ function NavBar() {
     <header>
       <img src={triangulo} alt='logo' />
       <nav>
-      <a href=''>Categoria 1</a>
-      <a href=''>Categoria 2</a>
-      <a href=''>Categoria 3</a>
+      <a href=''>Buzos</a>
+      <a href=''>Remeras</a>
+      <a href=''>Jeans</a>
       </nav>
       <CartWidget/>
     </header>
