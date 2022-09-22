@@ -9,9 +9,7 @@ function getItem(){
   }
 
 function ItemDetailContainer() {
-
     const [producto, setProducto] = useState({})
-    
     useEffect(() => {
         getItem().then((respuesta) => {
           setProducto(respuesta)
@@ -20,12 +18,7 @@ function ItemDetailContainer() {
       
   return (
     <div>
-       <ItemDetail
-       title={producto.product}
-       category={producto.category}
-       img={producto.image}
-       price={producto.price}
-       /> 
+       <ItemDetail producto={producto} /> 
     </div>
   )
 }
