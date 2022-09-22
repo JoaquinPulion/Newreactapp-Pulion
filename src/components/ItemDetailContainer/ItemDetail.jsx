@@ -1,17 +1,17 @@
 import React from 'react'
 import "../Item/Item.css"
 
-function ItemDetail({product}) {
+function ItemDetail({product, price, image, category}) {
     console.log(product);
   return (
     <div className="card">
       <div className="card-img">
-        <img src={product.image} alt="imagen" />
+        <img src={image} alt="imagen" />
       </div>
       <div className="card-detail">
-        <h2>{product.product}</h2>
-        <p>{product.category}</p>
-        <h3>$ {product.price}</h3>
+        <h2>{product}</h2>
+        <p>{category}</p>
+        <h3>$ {price}</h3>
         <button>Ver más</button>
       </div>
     </div>

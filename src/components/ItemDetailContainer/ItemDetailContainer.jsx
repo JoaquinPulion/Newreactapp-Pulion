@@ -21,10 +21,10 @@ function ItemDetailContainer() {
   return (
     <div>
        <ItemDetail
-       title={producto.product.product}
-       category={producto.product.category}
-       img={producto.product.image}
-       price={producto.product.price}
+       title={producto.product}
+       category={producto.category}
+       img={producto.image}
+       price={producto.price}
        /> 
     </div>
   )
