@@ -1,5 +1,5 @@
 import React from 'react'
-import "../Item/Item.css"
+import "./ItemDetail.css"
 
 function ItemDetail({ producto }) {
     console.log(producto);
