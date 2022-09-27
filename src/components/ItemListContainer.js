@@ -1,11 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount'
 import Swal from 'sweetalert2'
 import { products } from '../assets/productos'
 import { customFetch } from '../utils/customFetch'
 import { useState, useEffect } from 'react'
 import ItemList from './ItemList/ItemList'
+import { useParams } from 'react-router-dom'
 
 const Agregar = (Count) => {
   Swal.fire({
@@ -19,6 +19,10 @@ const Agregar = (Count) => {
 
 
 function ItemListContainer(props) {
+
+  let {IdCategoria} = useParams()
+  console.log(IdCategoria);
+
   const [listProducts, setListProducts] = useState ([])
 
   useEffect(() => {
