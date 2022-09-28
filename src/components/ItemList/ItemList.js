@@ -4,7 +4,7 @@ import Item from '../Item/Item'
 function ItemList({ListProducts}) {
   return (
     <div>
-        {ListProducts.map((prod, i) => <Item key={`${prod.products}-${i}`} 
+        {ListProducts.map((prod, i) => <Item key={`${prod.id}-${i}`} 
         product={prod} />)}
     </div>
   )

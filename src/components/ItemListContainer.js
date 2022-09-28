@@ -21,14 +21,17 @@ const Agregar = (Count) => {
 function ItemListContainer(props) {
 
   let {IdCategoria} = useParams()
-  console.log(IdCategoria);
+  console.log();
 
   const [listProducts, setListProducts] = useState ([])
 
+  
+
   useEffect(() => {
-    customFetch(products)
+    const URL= IdCategoria ? `${products.category}${IdCategoria}` : products
+    customFetch(URL)
       .then (res => setListProducts(res))
-  },[])
+  },[IdCategoria])
 
 
 
