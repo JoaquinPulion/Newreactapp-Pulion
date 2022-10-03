@@ -1,14 +1,18 @@
-import {React, useState} from 'react'
+import {React, useContext, useState} from 'react'
 import ItemCount from '../ItemCount'
 import { Link } from 'react-router-dom'
 import "./ItemDetail.css"
+import { CartContext } from '../../Context/CartContext'
 
 
 function ItemDetail({ producto }) {
     const [elimBtn, setElimBtn] = useState(false)
+    const {cart,addItem} = useContext(CartContext)
     const onAdd = (Count) => {
+      addItem(producto, Count)
       setElimBtn(true)
     }
+    console.log(cart);
   return (
     <div className="card">
       <div className="card-img">
