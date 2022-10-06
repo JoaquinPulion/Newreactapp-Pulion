@@ -7,17 +7,17 @@ function CartProvider({children}) {
 
   const addItem = (item, quantity) => {
     const existItem = cart.findIndex(itemCart =>itemCart.item.id == item.id)
-    if (existItem!== -1) {
+    if (existItem!== 1) {
       const newCart = cart.filter(item => item !== cart [existItem])
-      setCart([...cart,{item,quantity}, ...newCart])
+      setCart([{item,quantity}, ...newCart])
     } else {
       setCart([...cart,{item,quantity}])
     }
   }
   const removeItem = (item) => {
-    const newCart = cart.filter(oldItem => {
-      return oldItem.item !== item
-      }
+    const newCart = cart.filter(oldItem => 
+       oldItem.item !== item
+      
       )
     setCart([...newCart])
   }

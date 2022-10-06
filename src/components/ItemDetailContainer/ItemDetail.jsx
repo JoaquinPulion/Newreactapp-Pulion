@@ -25,7 +25,10 @@ function ItemDetail({ producto }) {
         {elimBtn ? (
           <div className="count">
           <Link to="/cart">
-          <button>Ir al carrito!</button>
+          <button>Terminar compra!</button>
+          </Link>
+          <Link to="/">
+          <button>Seguir comprando!</button>
           </Link>
         </div>
         ) : (

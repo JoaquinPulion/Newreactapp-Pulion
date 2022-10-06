@@ -6,6 +6,13 @@ import { CartContext } from '../Context/CartContext';
 
 function CartWidget() {
   const {cart} = useContext(CartContext)
+  if (cart.length == 0) {
+    return (
+    <>
+      <ShoppingCartIcon color='primary'/>
+      </>
+      )
+  }
   return (
     <>
     <ShoppingCartIcon color='primary'/>
