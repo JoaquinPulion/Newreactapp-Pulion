@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { products } from '../../assets/productos'
 import ItemDetail from './ItemDetail'
+import { db } from "../../Firebase/firebase"
+import { doc, getDoc, collection } from "firebase/firestore"
 
 const getItem = (data, stalltime = 0, id) => {
   return new Promise ((resolve, reject) =>
@@ -27,9 +29,22 @@ function ItemDetailContainer() {
     const { id } = useParams()
     console.log(id);
     useEffect(() => {
-        getItem(products, 2000, parseInt(id)).then((respuesta) => {
+      const prodCollection = collection(db, "listproducts")
+      const refDoc = doc(prodCollection, id)
+      getDoc(refDoc)
+      .then ((result) => {
+        setProducto(
+          {
+            id: result.id,
+            ...result.data(),
+          }
+        )
+      }
+      )
+
+        /*getItem(products, 2000, parseInt(id)).then((respuesta) => {
           setProducto(respuesta)
-        })
+        })*/
       },[id])
       
   return (
