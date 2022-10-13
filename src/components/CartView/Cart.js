@@ -1,9 +1,38 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../Context/CartContext'
 import { Link } from 'react-router-dom'
+import { db } from "../../Firebase/firebase"
+import { collection, addDoc, serverTimestamp, doc, updateDoc } from "firebase/firestore"
 
 export const Cart = () => {
   const {cart, total, clear, removeItem} = useContext(CartContext)
+
+  const comprador = {
+    nombre: "Ricardo",
+    apellido: "Suarez",
+    email:"ricardosuarez@gmail.com"
+  };
+
+  const finalizarCompra = ()=>{
+    const ventasCollection = collection(db,"sales");
+    addDoc(ventasCollection, {
+      comprador,
+      items: cart,
+      date: serverTimestamp(),
+      total,
+    })
+    .then(result=>{
+      cart.forEach(producto => {
+        actualizarStock(producto);
+      });
+      clear();
+    })
+  }
+
+  const actualizarStock = (producto) =>{
+    const updateStock = doc(db, "listproducts", producto.id);
+    updateDoc(updateStock,{stock:(producto.product.stock - producto.qtyProduct)});
+  }
 
   return (
     <>
@@ -29,6 +58,7 @@ export const Cart = () => {
           ))}
           <h3>Total: {total.toFixed(2)}</h3>
           <button onClick={clear}>Vaciar Carrito</button>
+          <button onClick={finalizarCompra}>Finalizar Compra</button>
         </>
       )}
     </>
