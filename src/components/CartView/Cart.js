@@ -38,7 +38,7 @@ export const Cart = () => {
     <>
       {cart.length === 0 ? (
         <h1>
-          No se agregaron productos, click<Link to="/">aca</Link> para ver productos.
+          No se agregaron productos, click<Link style={styles.link} to="/">acá</Link>para ver productos.
         </h1>
       ) : (
         <>
@@ -64,3 +64,12 @@ export const Cart = () => {
     </>
   );
 };
+
+const styles = {
+  link: {
+      textdecoration: "none",
+      display: "inline-block",
+      margin: "0 10px",
+      color: "rgb(234, 219, 92)",
+  }
+}

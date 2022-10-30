@@ -1,6 +1,4 @@
 import React from 'react'
-import { products } from '../assets/productos'
-import { customFetch } from '../utils/customFetch'
 import { useState, useEffect } from 'react'
 import ItemList from './ItemList/ItemList'
 import { useParams } from 'react-router-dom'
@@ -8,36 +6,24 @@ import { db } from "../../src/Firebase/firebase"
 import { getDocs, collection, query, where } from "firebase/firestore"
 
 function ItemListContainer(props) {
-
   let {IdCategoria} = useParams()
-  console.log();
-
   const [listProducts, setListProducts] = useState ([])
-
-  
+  const productsRef = collection (db, "listproducts")
 
   useEffect(() => {
-    const prodCollection = collection(db, "listproducts")
-    const qry = query(prodCollection, where("category", "==", "Jeans"))
-    getDocs(prodCollection)
-    .then((data)=>{
-      const lista = data.docs.map ((product)=>{
-        return {
-          ...product.data(),
-          id: product.id
-        }
-      })
-      setListProducts(lista)
+    async function fetchData (IdCategoria) {
+      const prodcutsQuery = !IdCategoria
+      ? productsRef
+      : query (productsRef, where ("category","==", IdCategoria))
+    
+    const response = await getDocs (prodcutsQuery)
+    const products = response.docs.map((product) => {
+      return { ...product.data(), id: product.id}
     })
-
-
-    /*const URL= IdCategoria ? `${products.category}${IdCategoria}` : products
-    customFetch(URL)
-      .then (res => setListProducts(res))*/
-  },[IdCategoria])
-
-
-
+    setListProducts(products)
+    }
+  fetchData(IdCategoria)
+  }, [IdCategoria])
   return (
     <div>
         <h1>{props.greeting.texto}</h1>
