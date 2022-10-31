@@ -13,21 +13,21 @@ function ItemDetail({ producto }) {
       setElimBtn(true)
     }
   return (
-    <div className="card">
-      <div className="card-img">
-        <img src={producto.image} alt="imagen" />
+    <div style={styles.container}>
+      <div style={styles.imagen}>
+        <img style={styles.ima} src={producto.image} alt="imagen" />
       </div>
-      <div className="card-detail">
+      <div style={styles.detail}>
         <h2>{producto.product}</h2>
         <p>{producto.category}</p>
         <h3>$ {producto.price}</h3>
         {elimBtn ? (
           <div className="count">
           <Link to="/cart">
-          <button>Terminar compra!</button>
+          <button style={styles.buttonAddd}>Terminar compra!</button>
           </Link>
           <Link to="/">
-          <button>Seguir comprando!</button>
+          <button style={styles.buttonAddd}>Seguir comprando!</button>
           </Link>
         </div>
         ) : (
@@ -39,3 +39,38 @@ function ItemDetail({ producto }) {
 }
 
 export default ItemDetail
+
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  detail: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  imagen: {
+    position: "relative",
+    display: "flex",
+    justifycontent: "center",
+    alignitems: "center",
+    transition: "0.5s",
+  },
+  ima: {
+    minwidth: "500px",
+    width: "500px",
+    height: "100%",
+  },
+  buttonAddd:{
+    width: '80%',
+    height: '50px',
+    borderRadius: '50%',
+    color: 'black',
+    fontSize: '18px',
+    backgroundColor: 'yellow',
+    margin: '10px',
+    fontWeight: "bold",
+    cursor: "pointer"
+  },
+};
