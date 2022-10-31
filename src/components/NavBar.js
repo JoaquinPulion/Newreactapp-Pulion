@@ -11,7 +11,6 @@ import { Link, NavLink } from 'react-router-dom'
 function NavBar() {
 
   const {cart} = useContext(CartContext)
-  console.log(cart);
 
   const categorias = [
     { id: 0, nombre: "Remeras", ruta:"/categoria/Remeras"},

@@ -12,7 +12,6 @@ function ItemDetail({ producto }) {
       addItem(producto, Count)
       setElimBtn(true)
     }
-    console.log(cart);
   return (
     <div className="card">
       <div className="card-img">
