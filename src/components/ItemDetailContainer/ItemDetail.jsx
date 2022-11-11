@@ -7,7 +7,7 @@ import { CartContext } from '../../Context/CartContext'
 
 function ItemDetail({ producto }) {
     const [elimBtn, setElimBtn] = useState(false)
-    const {cart,addItem} = useContext(CartContext)
+    const {addItem} = useContext(CartContext)
     const onAdd = (Count) => {
       addItem(producto, Count)
       setElimBtn(true)
