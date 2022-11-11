@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Newreactapp-Pulion/static/css/main.edf60c11.css",
-    "main.js": "/Newreactapp-Pulion/static/js/main.583c4b74.js",
+    "main.js": "/Newreactapp-Pulion/static/js/main.dfc9ffb8.js",
     "static/js/787.2065011d.chunk.js": "/Newreactapp-Pulion/static/js/787.2065011d.chunk.js",
     "static/media/triangulo.png": "/Newreactapp-Pulion/static/media/triangulo.0a67f8bad627c8ff911c.png",
     "index.html": "/Newreactapp-Pulion/index.html",
     "main.edf60c11.css.map": "/Newreactapp-Pulion/static/css/main.edf60c11.css.map",
-    "main.583c4b74.js.map": "/Newreactapp-Pulion/static/js/main.583c4b74.js.map",
+    "main.dfc9ffb8.js.map": "/Newreactapp-Pulion/static/js/main.dfc9ffb8.js.map",
     "787.2065011d.chunk.js.map": "/Newreactapp-Pulion/static/js/787.2065011d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.edf60c11.css",
-    "static/js/main.583c4b74.js"
+    "static/js/main.dfc9ffb8.js"
   ]
 }
